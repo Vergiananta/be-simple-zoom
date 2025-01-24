@@ -22,6 +22,8 @@ func CreatePost(c *gin.Context) {
 	var userInput struct {
 		Title      			string   `gorm:"not null" json:"title"`
 	Description       	string   `gorm:"type:text" json:"body"`
+	EmailTo 			string 	`gorm:"type:text" json:"emailTo"`
+	EmailCc 			string `gorm:"type:text" json:"emailCc"`
 	ActiveFrom 			string 		`gorm:"type:string" json:"activeFrom"`
 	ActiveTo 			string `gorm:"type:string" json:"activeTo"`
 	}
@@ -46,6 +48,8 @@ func CreatePost(c *gin.Context) {
 	post := models.Meeting{
 		Title:      userInput.Title,
 		Description:       userInput.Description,
+		EmailTo: userInput.EmailTo,
+		EmailCc: userInput.EmailCc,
 		ActiveFrom: userInput.ActiveFrom,
 		ActiveTo: userInput.ActiveTo,
 		UserID:     authID,
@@ -153,6 +157,8 @@ func UpdatePost(c *gin.Context) {
 	var userInput struct {
 		Title      			string   `gorm:"not null" json:"title"`
 		Description       	string   `gorm:"type:text" json:"body"`
+		EmailTo 			string 	`gorm:"type:text" json:"emailTo"`
+		EmailCc 			string `gorm:"type:text" json:"emailCc"`
 		ActiveFrom 			string 		`gorm:"type:string" json:"activeFrom"`
 		ActiveTo 			string `gorm:"type:string" json:"activeTo"`
 	}
@@ -187,6 +193,8 @@ func UpdatePost(c *gin.Context) {
 	updatePost := models.Meeting{
 		Title:      userInput.Title,
 		Description:       userInput.Description,
+		EmailTo: userInput.EmailTo,
+		EmailCc: userInput.EmailCc,
 		ActiveFrom: userInput.ActiveFrom,
 		ActiveTo: userInput.ActiveTo,
 		UserID:     authID,
