@@ -150,7 +150,9 @@ func Login(c *gin.Context) {
 	// Set expiry time and send the token back
 	c.SetSameSite(http.SameSiteLaxMode)
 	c.SetCookie("Authorization", tokenString, 3600*24*30, "", "", false, true)
-	c.JSON(http.StatusOK, gin.H{})
+	c.JSON(http.StatusOK, gin.H{
+		"token": tokenString,
+	})
 }
 
 // Logout function is used to log out a user
