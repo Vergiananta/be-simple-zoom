@@ -6,6 +6,8 @@ type Meeting struct {
 	gorm.Model
 	ID 		   			uint     `gorm:"primaryKey" `
 	Title      			string   `gorm:"not null" json:"title"`
+	EmailTo 			string 	`gorm:"type:text" json:"emailTo"`
+	EmailCc 			string `gorm:"type:text" json:"emailCc"`
 	Description       	string   `gorm:"type:text" json:"body"`
 	ActiveFrom 			string 		`gorm:"type:string" json:"activeFrom"`
 	ActiveTo 			string `gorm:"type:string" json:"activeTo"`
