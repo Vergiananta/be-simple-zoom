@@ -3,12 +3,14 @@ package router
 import (
 	"github.com/Vergiananta/be-simple-zoom/api/controllers"
 	"github.com/Vergiananta/be-simple-zoom/api/middleware"
+	"github.com/gin-contrib/cors"
 
 	"github.com/gin-gonic/gin"
 )
 
 func GetRoute(r *gin.Engine) {
 	// User routes
+	r.Use(cors.Default())
 	r.POST("/api/signup", controllers.Signup)
 	r.POST("/api/login", controllers.Login)
 
